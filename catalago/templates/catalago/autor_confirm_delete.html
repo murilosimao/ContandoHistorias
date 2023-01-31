@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Confirmação de Deleção</h1>
+<form method="post">
+    {% csrf_token %}}
+    <p>Você realmente deseja deletar "{{ object }}"</p>
+    {{ form }}
+  <input type="submit" value="Sim" class="btn btn-primary">
+</form>
+{% endblock %}

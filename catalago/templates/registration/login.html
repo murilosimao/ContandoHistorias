@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Entrar no Sistema</h1>
+
+{% if form.errors %}
+<p class="alert alert-danger" role="alert">Seu usuário e senha estão incorretos. Por favor, tente novamente.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_autenticated %}
+<p class="alert alert-warning" role="alert">Seu usuário não tem acesso à esta página. Para acessar, por favor realize o
+    login com uma conta que tenha a permissão necessária.</p>
+{% else %}
+<p class="alert alert-info" role="alert">Por favor, entre no sistema para acessar esta página.</p>
+{% endif %}
+{% endif %}
+
+<br>
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="md-3">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+    </div>
+    <div class="md-3">
+        {{ form.password.label_tag }}
+        {{ form.password}}
+    </div>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Entrar">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+
+{% endblock %}

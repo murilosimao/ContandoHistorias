@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>{{ livro.titulo }}</h1>
+
+<ul>
+  <li><strong>Autor: </strong> {{ livro.autor }}</li>
+  <li><strong>ISBN: </strong> {{ livro.isbn }} </li>
+  <li><strong>Idioma: </strong> {{ livro.idioma }}</li>
+</ul>
+    
+    <ul>
+    {% for review in livro.review_set.all %}
+        <li><a href="{% url 'review_detail' review.id %}">{{ review }}</a></li>
+    {% endfor%}
+    </ul>
+
+{% endblock %}

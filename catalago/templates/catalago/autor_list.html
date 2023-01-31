@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Listagem de Autores</h1>
+{% if autor_list %}
+<ul>
+    {% for autor in autor_list %}
+    <li><a href="{% url 'autor_detail' autor.id %}">{{ autor.primeiro_nome }} - {{ autor.data_nascimento }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Não há autores cadastrados</p>
+{% endif %}
+{% endblock %}

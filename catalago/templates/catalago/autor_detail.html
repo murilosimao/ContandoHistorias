@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>{{ autor.primeiro_nome }}</h1>
+
+<ul>
+  <li><strong>Sobrenome: </strong> {{ autor.sobrenome }}</li>
+  <li><strong>Nascimento: </strong> {{ autor.data_nascimento }} </li>
+</ul>
+<h3>Autor:</h3>
+<p>
+  {{ autor.primeiro_nome}}
+</p>
+{% if perms.delete_autor %}
+<p>
+  <a class="btn btn-danger" href="{% url 'autor_delete' autor.id %}">Deletar Autor</a>
+</p>
+{% endif %} 
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Listagem de Reviews em Análise</h1>
+{% if review_list %}
+  <p>Clique na review para realizar a avaliação:</p>
+  <ul>
+    {% for review in review_list %}
+      <li><a href="{% url 'review_avaliar' review.id %}">{{ review.livro }} - {{ review.revisor}}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}  
+<p>Não há reviews em análise cadastradas no sistema</p>
+{% endif %}
+
+{% endblock %}

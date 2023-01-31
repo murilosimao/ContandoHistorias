@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Bem-vindo ao Contando Histórias</h1>
+<p>
+    A seguir uma listagem dos recursos disponíveis
+</p>
+<ul>
+    <li><b>Livros registrados: </b>{{num_livros}}</li>
+</ul>
+<p>Lista de Livros</p>
+<ul>
+    {% for livro in livros %}
+    <li>{{livro}}</li>
+    {% endfor %} 
+</ul>
+{% endblock %}

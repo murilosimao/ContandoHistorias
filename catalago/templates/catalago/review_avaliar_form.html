@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+  <h1>Avaliar Review</h1>
+  <ul>
+    <li><b>ID: </b> {{ review.id }} </li>
+    <li><b>Livro: </b> {{ review.livro }}</li>
+    <li><b>Revisor: </b> {{ review.revisor }}</li>
+    <li><b>Resumo: </b> {{ review.resumo }} </li>
+  </ul>
+  <h2>Review</h2>
+  <p>{{ review.review }} </p>
+  <br>
+  {% crispy form %}
+{% endblock %}

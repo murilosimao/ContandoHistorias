@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>{{ review.livro.titulo }} - Review {{ review.id }} </h1>
+
+<ul>
+  <li><strong>Data da review: </strong> {{ review.data_review}}</li>
+  <li><strong>Resumo: </strong> {{ review.resumo}}</li>
+</ul>
+<h3>Review:</h3>
+<p>
+  {{ review.review}}
+</p>
+{% if perms.delete_review %}
+<p>
+  <a class="btn btn-danger" href="{% url 'review_delete' review.id %}">Deletar Review</a>
+</p>
+{% endif %} 
+
+{% endblock %}

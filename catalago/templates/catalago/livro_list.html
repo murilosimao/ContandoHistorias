@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Listagem de Livros</h1>
+{% if livro_list %}
+  <ul>
+    {% for livro in livro_list %}
+      <li><a href="{% url 'livro_detail' livro.id %}">{{ livro }} - {{ livro.autor }}</a></li>
+<!--       <li><a href="{{ livro.get_absolute_url }}">{{ livro }} - {{ livro.autor }}</a></li> -->
+    {% endfor %}
+  </ul>
+{% else %}
+<p>Não há livros cadastrados no sistema</p>
+{% endif %}
+
+{% endblock %}
